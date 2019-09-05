@@ -1,0 +1,9 @@
+type Valor{
+    nome: String
+}
+type Query {
+    test: Valor
+}
+type Mutation{
+    valor(email: String!): String
+}
