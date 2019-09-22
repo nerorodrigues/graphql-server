@@ -2,10 +2,12 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const bodyParser = require('body-parser');
 const getSchema = require('./graphql');
+const {createDatabase} = require('./database');
 
 const configureServer = async () => {
     const app = express();
 
+    const db = await createDatabase();
     const { schema, resolver } = await getSchema();
 
     const server = new ApolloServer({
@@ -15,7 +17,7 @@ const configureServer = async () => {
             if(req){
                 return{
                     user: req.user,
-                    data: {elemento: 'valor'}
+                    db
                 }
             }
             

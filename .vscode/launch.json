@@ -7,6 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Seed",
+            "program": "${workspaceFolder}\\database\\cli.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}\\index.js"
         }
